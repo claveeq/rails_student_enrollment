@@ -6,13 +6,38 @@ class StudentsController < ApplicationController
 
   def create
     command = Students::Create.call(request_params)
-    status = command.success? ? :created : :unprocessable_entity
-    render json: command.result, status: status
+    render_wrapper(
+      data: command.result,
+      errors: command.errors,
+      status: :ok
+    )
+  end
+
+  def update
+    command = Students::Update.call(update_params)
+    render_wrapper(
+      data: command.result,
+      errors: command.errors,
+      status: :ok
+    )
+  end
+
+  def destroy
+    command = Students::Remove.call(params[:id])
+    render_wrapper(
+      data: command.result,
+      errors: command.errors,
+      status: :ok
+    )
   end
 
   private
 
   def request_params
     params.require(:student).permit(:first_name, :last_name)
+  end
+
+  def update_params
+    @update_params ||= request_params.merge(id: params[:id])
   end
 end

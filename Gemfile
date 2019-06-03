@@ -10,6 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 
+gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

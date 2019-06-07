@@ -17,7 +17,7 @@ module Enrollments
     private
 
     def enrollment
-      Enrollment.find(@id)
+      @enrollment ||= Enrollment.find(@id)
     end
   end
 end

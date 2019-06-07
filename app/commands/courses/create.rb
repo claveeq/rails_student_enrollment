@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-module Enrollments
+module Courses 
   class Create
     prepend ::SimpleCommand
     def initialize(params)
@@ -8,7 +6,7 @@ module Enrollments
     end
 
     def call
-      @enrollment ||= Enrollment.create(@params)
+      Course.create(@params)
     end
   end
 end

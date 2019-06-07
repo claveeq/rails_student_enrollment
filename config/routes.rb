@@ -4,8 +4,6 @@ Rails.application.routes.draw do
       post :enroll
     end
   end
-
-  resources :courses, only: [:index]
-  
+  resources :courses, only: [:index, :create, :destroy]
   resources :enrollments, only: [:create, :destroy]
 end

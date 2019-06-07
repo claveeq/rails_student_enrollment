@@ -5,8 +5,8 @@ module Students
     prepend ::SimpleCommand
 
     def initialize(params)
-      @params = paramsdds
-    enddfds
+      @params = params
+    end
 
     def call
       return errors.add(:student, 'does not exist') if student.nil?
